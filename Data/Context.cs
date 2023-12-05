@@ -46,5 +46,10 @@ namespace jal_crud.Data
             optionsBuilder.UseSqlite($"FileName={rutaDb}");
             base.OnConfiguring(optionsBuilder);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
