@@ -12,6 +12,7 @@ namespace jal_crud.Models
     public class clsContactosBE
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ContactosId { get; set; }
         public DateTime Fecha { get; set; }
         
