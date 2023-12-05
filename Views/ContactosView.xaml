@@ -10,6 +10,8 @@
             <Entry Placeholder="Apellidos" Text="{Binding Path=Apellidos, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
             <Entry Placeholder="Dirección" Text="{Binding Path=Direccion, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
             <Entry Placeholder="Teléfono" Text="{Binding Path=Telefono, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+
+            <Button Text="Guardar" Margin="0, 40" Command="{Binding SaveCommand}" />
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

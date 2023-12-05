@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace jal_crud.ViewModels
 {
@@ -13,7 +14,7 @@ namespace jal_crud.ViewModels
         string _direccion;
         string _telefono;
 
-       
+
         public string Nombres
         {
             get
@@ -72,6 +73,19 @@ namespace jal_crud.ViewModels
                     _direccion = value;
                     this.OnPropertyChange(nameof(Direccion));
                 }
+            }
+        }
+
+        ICommand _saveCommand;
+        public ICommand SaveCommand
+        {
+            get
+            {
+                return _saveCommand ??
+                    (_saveCommand = new Command((obj) =>
+                    {
+                        // Save()
+                    }));
             }
         }
     }
