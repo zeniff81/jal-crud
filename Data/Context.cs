@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using jal_crud.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,32 @@ namespace jal_crud.Data
 
             this.Database.EnsureCreated();
             this.Database.Migrate();
+        }
+
+        public DbSet<clsContactosBE> clsContactosBE { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            String rutaDb = string.Empty;
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    {
+                        rutaDb = Path.Combine(FileSystem.AppDataDirectory, "unad.db3");
+                    }break;
+                case Device.MacCatalyst:
+                    {
+                        rutaDb = Path.Combine(FileSystem.AppDataDirectory, "unad.db3");
+                    }
+                    break;
+                case Device.Android:
+                    {
+                        rutaDb = Path.Combine(FileSystem.AppDataDirectory, "unad.db3");
+                    }
+                    break;
+            }
+            optionsBuilder.UseSqlite($"FileName={rutaDb}");
+            base.OnConfiguring(optionsBuilder);
         }
     }
 }
