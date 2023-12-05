@@ -54,10 +54,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="ViewModels\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="Views\ContactosView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
