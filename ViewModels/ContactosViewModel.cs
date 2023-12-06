@@ -1,4 +1,5 @@
-﻿using System;
+﻿using jal_crud.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -76,7 +77,7 @@ namespace jal_crud.ViewModels
             }
         }
 
-        ICommand _saveCommand;
+        private ICommand _saveCommand;
         public ICommand SaveCommand
         {
             get
@@ -84,8 +85,40 @@ namespace jal_crud.ViewModels
                 return _saveCommand ??
                     (_saveCommand = new Command((obj) =>
                     {
-                        // Save()
+                        Save();
                     }));
+            }
+        }
+
+        private void Save()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(Nombres))
+                {
+                    App.Current.MainPage.DisplayAlert("Aviso", "Es necesario el nombre del contacto", "Aceptar");
+                    return;
+                }
+                if (string.IsNullOrEmpty(Apellidos))
+                {
+                    App.Current.MainPage.DisplayAlert("Aviso", "Es necesario el apellidos del contacto", "Aceptar");
+                    return;
+                }
+                if (string.IsNullOrEmpty(Direccion))
+                {
+                    App.Current.MainPage.DisplayAlert("Aviso", "Es necesario la dirección del contacto", "Aceptar");
+                    return;
+                }
+                if (string.IsNullOrEmpty(Telefono))
+                {
+                    App.Current.MainPage.DisplayAlert("Aviso", "Es necesario el teléfono del contacto", "Aceptar");
+                    return;
+                }
+                DataService data = new DataService();
+                data.ContactosSave(Nombres, Apellidos, Direccion, Telefono);
+            }catch (Exception ex)
+            {
+                var x = ex;
             }
         }
     }
