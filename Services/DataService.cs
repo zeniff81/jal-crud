@@ -13,7 +13,7 @@ namespace jal_crud.Services
         Context db;
         public DataService(){}
                 
-        public string ContactosSave(string newNombres, string newApellidos, string newDireccion, string newTelefono)
+        public string ContactosSave(string newNombres, string newApellidos, string newDireccion, string newTelefono, int newCiudadId)
         {
             try
             {
@@ -26,7 +26,8 @@ namespace jal_crud.Services
                     Nombres = newNombres,
                     Apellidos = newApellidos, 
                     Telefono = newTelefono,
-                    Direccion = newDireccion
+                    Direccion = newDireccion,
+                    CiudadId = newCiudadId
                 });
 
                 db.SaveChanges();

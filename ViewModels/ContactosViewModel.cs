@@ -16,6 +16,7 @@ namespace jal_crud.ViewModels
         string _apellidos;
         string _direccion;
         string _telefono;
+        int _ciudadId;
         List<clsContactosBE> _contactos;
         #endregion
 
@@ -96,6 +97,21 @@ namespace jal_crud.ViewModels
                 }
             }
         }
+        public int CiudadId
+        {
+            get
+            {
+                return _ciudadId;
+            }
+            set
+            {
+                if (_ciudadId != value)
+                {
+                    _ciudadId = value;
+                    this.OnPropertyChange(nameof(CiudadId));
+                }
+            }
+        }
         #endregion
 
         #region Commands
@@ -136,8 +152,13 @@ namespace jal_crud.ViewModels
                     App.Current.MainPage.DisplayAlert("Aviso", "Es necesario el teléfono del contacto", "Aceptar");
                     return;
                 }
+                if (string.IsNullOrEmpty(CiudadId.ToString()))
+                {
+                    App.Current.MainPage.DisplayAlert("Aviso", "Es necesario la ciudad del contacto", "Aceptar");
+                    return;
+                }
                 DataService data = new DataService();
-                data.ContactosSave(Nombres, Apellidos, Direccion, Telefono);
+                data.ContactosSave(Nombres, Apellidos, Direccion, Telefono, CiudadId);
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
-﻿using jal_crud.Views;
+﻿using jal_crud.Data;
+using jal_crud.Views;
 
 namespace jal_crud
 {
@@ -8,6 +9,14 @@ namespace jal_crud
         {
             InitializeComponent();
 
+            Context db = new Context();
+            db.clsCiudadesBE.Add(new Models.clsCiudadesBE
+            {                
+                Ciudad = "Santiago"
+            });
+            db.SaveChanges();
+
+            //MainPage = new ContactoView();
             MainPage = new ContactosView();
         }
     }
