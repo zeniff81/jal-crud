@@ -1,4 +1,5 @@
-﻿using jal_crud.Services;
+﻿using jal_crud.Models;
+using jal_crud.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,31 @@ namespace jal_crud.ViewModels
 {
     class ContactosViewModel : BaseViewModel
     {
+        #region Variables locales
         string _nombres;
         string _apellidos;
         string _direccion;
         string _telefono;
+        List<clsContactosBE> _contactos;
+        #endregion
 
 
+        #region Propiedades
+        public List<clsContactosBE> Contactos
+        {
+            get
+            {
+                return _contactos;
+            }
+            set
+            {
+                if (_contactos != value)
+                {
+                    _contactos = value;
+                    this.OnPropertyChange(nameof(Contactos));
+                }
+            }
+        }
         public string Nombres
         {
             get
@@ -76,7 +96,9 @@ namespace jal_crud.ViewModels
                 }
             }
         }
+        #endregion
 
+        #region Commands
         private ICommand _saveCommand;
         public ICommand SaveCommand
         {
@@ -116,10 +138,23 @@ namespace jal_crud.ViewModels
                 }
                 DataService data = new DataService();
                 data.ContactosSave(Nombres, Apellidos, Direccion, Telefono);
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 var x = ex;
             }
+        }
+        #endregion
+
+        public ContactosViewModel()
+        {
+            getDatos();
+        }
+
+        private void getDatos()
+        {
+            DataService data = new DataService();
+            Contactos = data.ContactosGet();
         }
     }
 
