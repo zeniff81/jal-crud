@@ -96,7 +96,7 @@ namespace jal_crud.Services
             catch (Exception ex)
             {
                 return new clsContactosBE();
-            }            
+            }
         }
 
         public List<clsContactosBE> ContactosGet()
@@ -136,7 +136,7 @@ namespace jal_crud.Services
                 db.clsCiudadesBE.Add(new Models.clsCiudadesBE
                 {
                     CiudadId = Id,
-                    Ciudad = newCiudad,                    
+                    Ciudad = newCiudad,
                 });
 
                 db.SaveChanges();
@@ -154,7 +154,7 @@ namespace jal_crud.Services
                 var row = db.clsCiudadesBE.Where(x => x.CiudadId == newCiudadId).FirstOrDefault();
                 if (row != null)
                 {
-                    row.Ciudad = newCiudad;                    
+                    row.Ciudad = newCiudad;
 
                     db.Entry(row).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     db.SaveChanges();
