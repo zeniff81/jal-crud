@@ -8,7 +8,7 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:ContactosView}"
+        ContentTemplate="{DataTemplate local:ContactoView}"
         Route="MainPage" />
 
 </Shell>

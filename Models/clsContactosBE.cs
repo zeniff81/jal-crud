@@ -21,10 +21,9 @@ namespace jal_crud.Models
         public String Apellidos { get; set; }
         public String Direccion { get; set; }
         public String Telefono { get; set; }
+        public int CiudadId { get; set; }
 
-        public clsContactosBE()
-        {
-            
-        }
+        // relaciones 
+         public virtual clsCiudadesBE Ciudades { get; set; }
     }    
 }

@@ -1,4 +1,5 @@
-﻿using jal_crud.Views;
+﻿using jal_crud.Data;
+using jal_crud.Views;
 
 namespace jal_crud
 {
@@ -8,6 +9,8 @@ namespace jal_crud
         {
             InitializeComponent();
 
+            Context db = new Context();
+            // MainPage = new ContactoView();
             MainPage = new ContactosView();
         }
     }

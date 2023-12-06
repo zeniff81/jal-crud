@@ -2,9 +2,9 @@ using jal_crud.ViewModels;
 
 namespace jal_crud.Views;
 
-public partial class ContactosView : ContentPage
+public partial class ContactoView : ContentPage
 {
-	public ContactosView()
+	public ContactoView()
 	{
 		InitializeComponent();
 		BindingContext = new ContactosViewModel();

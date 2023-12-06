@@ -22,33 +22,39 @@ namespace jal_crud.Data
         }
 
         public DbSet<clsContactosBE> clsContactosBE { get; set; }
+        public DbSet<clsCiudadesBE> clsCiudadesBE { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            String rutaDb = string.Empty;
+            String rutaDB = string.Empty;
             switch (Device.RuntimePlatform)
             {
                 case Device.iOS:
                     {
-                        rutaDb = Path.Combine(FileSystem.AppDataDirectory, "unad.db3");
+                        rutaDB = Path.Combine(FileSystem.AppDataDirectory, "unad3.db3");
                     }break;
                 case Device.MacCatalyst:
                     {
-                        rutaDb = Path.Combine(FileSystem.AppDataDirectory, "unad.db3");
+                        rutaDB = Path.Combine(FileSystem.AppDataDirectory, "unad3.db3");
                     }
                     break;
                 case Device.Android:
                     {
-                        rutaDb = Path.Combine(FileSystem.AppDataDirectory, "unad.db3");
+                        rutaDB = Path.Combine(FileSystem.AppDataDirectory, "unad3.db3");
                     }
                     break;
             }
-            optionsBuilder.UseSqlite($"FileName={rutaDb}");
+            optionsBuilder.UseSqlite($"FileName={rutaDB}");
             base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<clsCiudadesBE>()
+                .HasMany(x => x.Contactos)
+                .WithOne(x => x.Ciudades)
+                .OnDelete(DeleteBehavior.Restrict);
+
             base.OnModelCreating(modelBuilder);
         }
     }
