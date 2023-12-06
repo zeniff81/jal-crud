@@ -54,7 +54,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\ContactoView.xaml.cs">
+	    <DependentUpon>ContactoView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\ContactosView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ContactoView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

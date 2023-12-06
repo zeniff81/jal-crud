@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jal_crud.Views.ContactoView"
+             Title="ContactoView">
+    <VerticalStackLayout>
+        <VerticalStackLayout Margin="30,2" VerticalOptions="CenterAndExpand">
+            <Label Text="ID" HorizontalOptions="EndAndExpand"/>            
+            <Entry Placeholder="Nombres" Text="{Binding Path=Nombres, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Entry Placeholder="Apellidos" Text="{Binding Path=Apellidos, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Entry Placeholder="Dirección" Text="{Binding Path=Direccion, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Entry Placeholder="Teléfono" Text="{Binding Path=Telefono, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+
+            <Button Text="Guardar" Margin="0, 40" Command="{Binding SaveCommand}" />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

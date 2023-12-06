@@ -8,7 +8,7 @@ namespace jal_crud
         {
             InitializeComponent();
 
-            MainPage = new ContactosView();
+            MainPage = new ContactoView();
         }
     }
 }
