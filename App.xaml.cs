@@ -10,13 +10,7 @@ namespace jal_crud
             InitializeComponent();
 
             Context db = new Context();
-            db.clsCiudadesBE.Add(new Models.clsCiudadesBE
-            {                
-                Ciudad = "Santiago"
-            });
-            db.SaveChanges();
-
-            //MainPage = new ContactoView();
+            // MainPage = new ContactoView();
             MainPage = new ContactosView();
         }
     }

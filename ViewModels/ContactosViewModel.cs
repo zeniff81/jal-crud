@@ -159,6 +159,7 @@ namespace jal_crud.ViewModels
                 }
                 DataService data = new DataService();
                 data.ContactosSave(Nombres, Apellidos, Direccion, Telefono, CiudadId);
+                App.Current.MainPage.DisplayAlert("Aviso", "Guardado correctamente.", "Aceptar");
             }
             catch (Exception ex)
             {

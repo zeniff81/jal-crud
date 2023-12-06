@@ -20,6 +20,7 @@
                                 <RowDefinition Height="30"/>
                                 <RowDefinition Height="30"/>
                                 <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
                             </Grid.RowDefinitions>
 
                             <Label Text="ContactoId:" Grid.Column="0" Grid.Row="0" />
@@ -36,6 +37,9 @@
 
                             <Label Text="Telefono:" Grid.Column="0" Grid.Row="4" />
                             <Label Text="{Binding Path=Telefono, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" />
+
+                            <Label Text="Ciudad:" Grid.Column="0" Grid.Row="5" />
+                            <Label Text="{Binding Path=Ciudades.Ciudad, Mode=TwoWay}" Grid.Column="1" Grid.Row="5" />
 
                         </Grid>
                     </Frame>

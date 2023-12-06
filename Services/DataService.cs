@@ -39,8 +39,24 @@ namespace jal_crud.Services
         public List<clsContactosBE> ContactosGet()
         {
             Context db = new Context();
-            return db.clsContactosBE.ToList();
 
-        }
+            var result = from Ci in db.clsCiudadesBE join C in db.clsContactosBE on Ci.CiudadId equals C.CiudadId select new clsContactosBE 
+            { 
+                ContactosId = C.ContactosId,
+                CiudadId = C.CiudadId,
+                Nombres = C.Nombres,
+                Apellidos = C.Apellidos,
+                Telefono = C.Telefono,
+                Direccion = C.Direccion,
+                Ciudades =  new clsCiudadesBE
+                {
+                    CiudadId = Ci.CiudadId,
+                    Ciudad = Ci.Ciudad
+                }
+            };
+
+            return result.ToList();
+
+        }   
     }
 }
