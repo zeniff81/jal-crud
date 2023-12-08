@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jal_crud.Views.Categorias.CategoriasRead"
+             Title="CATEGORIAS - Read">
+    <VerticalStackLayout>
+        <CollectionView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ItemsSource="{Binding Categorias}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Black" Background="WhiteSmoke" Margin="10, 5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"/>
+                                <ColumnDefinition Width="70*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Text="CategoriaId:" Grid.Column="0" Grid.Row="0" />
+                            <Label Text="{Binding Path=CategoriaId, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
+
+                            <Label Text="Nombre:" Grid.Column="0" Grid.Row="1" />
+                            <Label Text="{Binding Path=Categoria, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

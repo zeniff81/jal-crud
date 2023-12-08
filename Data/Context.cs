@@ -23,6 +23,13 @@ namespace jal_crud.Data
 
         public DbSet<clsContactosBE> clsContactosBE { get; set; }
         public DbSet<clsCiudadesBE> clsCiudadesBE { get; set; }
+        public DbSet<clsCategoriasBE> clsCategoriasBE { get; set; }
+        public DbSet<clsProductosBE> clsProductosBE { get; set; }
+        public DbSet<clsTipoFacturasBE> clsTipoFacturasBE { get; set; }
+        public DbSet<clsClientesBE> clsClientesBE { get; set; }
+        public DbSet<clsFacturasBE> clsFacturasBE { get; set; }
+        public DbSet<clsDetalleFacturasBE> clsDetalleFacturasBE { get; set; }
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -31,16 +38,16 @@ namespace jal_crud.Data
             {
                 case Device.iOS:
                     {
-                        rutaDB = Path.Combine(FileSystem.AppDataDirectory, "unad3.db3");
+                        rutaDB = Path.Combine(FileSystem.AppDataDirectory, "unad4.db3");
                     }break;
                 case Device.MacCatalyst:
                     {
-                        rutaDB = Path.Combine(FileSystem.AppDataDirectory, "unad3.db3");
+                        rutaDB = Path.Combine(FileSystem.AppDataDirectory, "unad4.db3");
                     }
                     break;
                 case Device.Android:
                     {
-                        rutaDB = Path.Combine(FileSystem.AppDataDirectory, "unad3.db3");
+                        rutaDB = Path.Combine(FileSystem.AppDataDirectory, "unad4.db3");
                     }
                     break;
             }

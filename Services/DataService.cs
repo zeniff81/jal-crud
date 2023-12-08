@@ -1,5 +1,7 @@
 ﻿using jal_crud.Data;
 using jal_crud.Models;
+using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -94,7 +96,7 @@ namespace jal_crud.Services
                 return db.clsContactosBE.Where(x => x.ContactosId == newContactoId).FirstOrDefault();
             }
             catch (Exception ex)
-            {
+            {                
                 return new clsContactosBE();
             }
         }
@@ -208,6 +210,199 @@ namespace jal_crud.Services
             Context db = new Context();
 
             return db.clsCiudadesBE.ToList();
+
+        }
+        #endregion
+
+        #region Categorias
+        public string CategoriasSave(string newCategoria)
+        {
+            try
+            {
+                db = new Context();                
+
+                db.clsCategoriasBE.Add(new Models.clsCategoriasBE
+                {                    
+                    Categoria = newCategoria,
+                });
+
+                db.SaveChanges();
+                return "Guardado Correctamente";
+            }
+            catch (Exception ex) { return ex.Message; }
+        }
+
+        public string CategoriasUpdate(int newCategoriaId, string newCategoria)
+        {
+            try
+            {
+
+                db = new Context();
+                var row = db.clsCategoriasBE.Where(x => x.CategoriaId == newCategoriaId).FirstOrDefault();
+                if (row != null)
+                {
+                    row.Categoria = newCategoria;
+
+                    db.Entry(row).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    db.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "Modificado correctamente";
+        }
+
+        public string CategoriasDeleteGetById(int CategoriaId)
+        {
+            try
+            {
+
+                db = new Context();
+                var row = db.clsCategoriasBE.Where(x => x.CategoriaId == CategoriaId).FirstOrDefault();
+                if (row != null)
+                {
+                    db.Entry(row).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                    db.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "Eliminado correctamente";
+        }
+
+        public clsCategoriasBE CategoriasGetById(int newCategoriaId)
+        {
+            try
+            {
+
+                db = new Context();
+                return db.clsCategoriasBE.Where(x => x.CategoriaId == newCategoriaId).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                return new clsCategoriasBE();
+            }
+        }
+
+        public List<clsCategoriasBE> CategoriasGet()
+        {
+            Context db = new Context();
+
+            var result = from Ca in db.clsCategoriasBE
+                         select new clsCategoriasBE
+                         {
+                             CategoriaId = Ca.CategoriaId,
+                             Categoria = Ca.Categoria
+                         };
+            
+            return result.ToList();
+
+        }
+        #endregion
+
+        #region Clientes
+        public string ClientesSave(string newNombres, string newApellidos, string newDireccion, string newTelefono)
+        {
+            try
+            {
+                db = new Context();
+
+                db.clsClientesBE.Add(new Models.clsClientesBE
+                {
+                    Nombres = newNombres,
+                    Apellidos = newApellidos,
+                    Telefono = newTelefono,
+                    Direccion = newDireccion
+                });
+
+                db.SaveChanges();
+                return "Cliente guardado Correctamente";
+            }
+            catch (Exception ex) { return ex.Message; }
+        }
+
+        public string ClientesUpdate(int newClienteId, string newNombres, string newApellidos, string newDireccion, string newTelefono)
+        {
+            try
+            {
+
+                db = new Context();
+                var row = db.clsClientesBE.Where(x => x.ClienteId == newClienteId).FirstOrDefault();
+                if (row != null)
+                {
+                    row.Nombres = newNombres;
+                    row.Apellidos = newApellidos;
+                    row.Direccion = newDireccion;
+                    row.Telefono = newTelefono;
+
+                    db.Entry(row).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    db.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "Modificado correctamente";
+        }
+
+        public string ClientesDeleteGetById(int ClienteId)
+        {
+            try
+            {
+
+                db = new Context();
+                var row = db.clsClientesBE.Where(x => x.ClienteId == ClienteId).FirstOrDefault();
+                if (row != null)
+                {
+                    db.Entry(row).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                    db.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "Eliminado correctamente";
+        }
+
+        public clsClientesBE ClientesGetById(int newClienteId)
+        {
+            try
+            {
+
+                db = new Context();
+                return db.clsClientesBE.Where(x => x.ClienteId == newClienteId).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                return new clsClientesBE();
+            }
+        }
+
+        public List<clsClientesBE> ClientesGet()
+        {
+            Context db = new Context();
+
+            var result = from Ca in db.clsClientesBE
+                         select new clsClientesBE
+                         {
+                             ClienteId = Ca.ClienteId,
+                             Nombres = Ca.Nombres,
+                             Apellidos = Ca.Apellidos,
+                             Direccion = Ca.Direccion,
+                             Telefono = Ca.Telefono,
+                         };
+
+            return result.ToList();
 
         }
         #endregion

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jal_crud.Views.Categorias.CategoriasCreate"
+             Title="Categorias - Create">
+    <VerticalStackLayout>
+        <VerticalStackLayout Margin="30,2" VerticalOptions="CenterAndExpand">                        
+            <Entry Placeholder="Nombre de la categoría" Text="{Binding Path=Categoria, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Button Text="Guardar" Margin="0, 40" Command="{Binding SaveCommand}" BackgroundColor="Green"/>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jal_crud.Views.CRUDMenu.CRUDMenu"
+             x:Name="Pagina"
+             Title="CRUD">
+    <VerticalStackLayout Spacing="10" WidthRequest="150" VerticalOptions="CenterAndExpand">
+        <Label 
+            Text="Menú de Categorías" 
+            FontSize="Large" 
+            HorizontalTextAlignment="Center" 
+            Margin="0, 20"
+            x:Name="Titulo"
+            />
+        
+        <Button Text="Crear" Clicked="Button_Crear_Clicked_1"/>
+        <Button Text="Ver todos" Clicked="Button_Ver_Clicked_2"/>
+        <Button Text="Editar" Clicked="Button_Editar_Clicked_3"/>
+        <Button Text="Borrar" Clicked="Button_Borrar_Clicked_4" BackgroundColor="DarkRed"/>
+        
+    </VerticalStackLayout>
+</ContentPage>

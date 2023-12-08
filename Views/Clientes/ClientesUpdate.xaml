@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jal_crud.Views.Clientes.ClientesUpdate"
+             Title="Clientes - Update">
+
+    <StackLayout>
+        <Label Text="Introduzca el Id que desea buscar" FontSize="Medium" Margin="0,20" HorizontalTextAlignment="Center"/>
+        <Entry x:Name="CategoryIdEntry" Placeholder="ClienteId" Margin="0,20" HorizontalTextAlignment="Center" WidthRequest="120" TextChanged="CategoryIdEntry_HandlerChanged" />
+        <Button x:Name="Button_Buscar" Text="Buscar" Clicked="Button_Buscar_Clicked" WidthRequest="120"/>
+        <Label x:Name="Label_error" Text="" TextColor="Red" Margin="0,20,0,50" HorizontalTextAlignment="Center"/>
+
+        <StackLayout x:Name="Edicion" IsVisible="false" HorizontalOptions="Center">
+            <Label Text="Edite y presione guardar" FontSize="Medium" Margin="0,20" HorizontalTextAlignment="Center"/>
+            <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                <Label Text="ClienteId:"/>
+                <Label x:Name="Label_ClienteId" Text=""/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                <Label Text="Cliente:" VerticalTextAlignment="Center"/>
+                <Entry x:Name="Entry_Nombres" Text="" VerticalTextAlignment="Center"/>
+                <Entry x:Name="Entry_Apellidos" Text="" VerticalTextAlignment="Center"/>
+                <Entry x:Name="Entry_Direccion" Text="" VerticalTextAlignment="Center"/>
+                <Entry x:Name="Entry_Telefono" Text="" VerticalTextAlignment="Center"/>
+            </HorizontalStackLayout>
+
+            <Button x:Name="Button_guardar" Text="Guardar" Clicked="Button_Guardar_Clicked" BackgroundColor="Green" WidthRequest="120" Margin="0, 20"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

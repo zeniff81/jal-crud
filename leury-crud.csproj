@@ -54,16 +54,55 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\ContactoView.xaml.cs">
-	    <DependentUpon>ContactoView.xaml</DependentUpon>
+	  <Compile Update="Views\Clientes\ClientesDelete.xaml.cs">
+	    <DependentUpon>ClientesDelete.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Clientes\ClientesRead.xaml.cs">
+	    <DependentUpon>ClientesRead.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Clientes\ClientesUpdate.xaml.cs">
+	    <DependentUpon>ClientesUpdate.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Clientes\ClientesCreate.xaml.cs">
+	    <DependentUpon>ClientesCreate.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Categorias\CategoriasUpdate.xaml.cs">
+	    <DependentUpon>CategoriasUpdate.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Categorias\CategoriasRead.xaml.cs">
+	    <DependentUpon>CategoriasRead.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Categorias\CategoriasDelete.xaml.cs">
+	    <DependentUpon>CategoriasDelete.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Categorias\CategoriasCreate.xaml.cs">
+	    <DependentUpon>CategoriasCreate.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\ContactosView.xaml">
+	  <MauiXaml Update="MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ContactoView.xaml">
+	  <MauiXaml Update="Test.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Clientes\ClientesDelete.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Clientes\ClientesRead.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Clientes\ClientesUpdate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Clientes\ClientesCreate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CRUDMenu\CRUDMenu.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CRUDMenu\EditorView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

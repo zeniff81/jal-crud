@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="jal_crud.Views.ContactosView"
-             Title="ContactosView">
+             x:Class="jal_crud.Views.Clientes.ClientesRead"
+             Title="Clientes - Read">
     <VerticalStackLayout>
-        
-        <CollectionView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ItemsSource="{Binding Contactos}">
+        <CollectionView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ItemsSource="{Binding Clientes}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame BorderColor="Black" Background="WhiteSmoke" Margin="10, 5">
@@ -19,33 +18,25 @@
                                 <RowDefinition Height="30"/>
                                 <RowDefinition Height="30"/>
                                 <RowDefinition Height="30"/>
-                                <RowDefinition Height="30"/>
-                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="40"/>
                             </Grid.RowDefinitions>
 
-                            <Label Text="ContactoId:" Grid.Column="0" Grid.Row="0" />
-                            <Label Text="{Binding Path=ContactosId, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
+                            <Label Text="ClienteId:" Grid.Column="0" Grid.Row="0" />
+                            <Label Text="{Binding Path=ClienteId, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
 
                             <Label Text="Nombres:" Grid.Column="0" Grid.Row="1" />
                             <Label Text="{Binding Path=Nombres, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" />
-
                             <Label Text="Apellidos:" Grid.Column="0" Grid.Row="2" />
                             <Label Text="{Binding Path=Apellidos, Mode=TwoWay}" Grid.Column="1" Grid.Row="2" />
-
                             <Label Text="Direccion:" Grid.Column="0" Grid.Row="3" />
                             <Label Text="{Binding Path=Direccion, Mode=TwoWay}" Grid.Column="1" Grid.Row="3" />
-
                             <Label Text="Telefono:" Grid.Column="0" Grid.Row="4" />
                             <Label Text="{Binding Path=Telefono, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" />
-
-                            <Label Text="Ciudad:" Grid.Column="0" Grid.Row="5" />
-                            <Label Text="{Binding Path=Ciudades.Ciudad, Mode=TwoWay}" Grid.Column="1" Grid.Row="5" />
-
+                            
                         </Grid>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        
     </VerticalStackLayout>
 </ContentPage>
