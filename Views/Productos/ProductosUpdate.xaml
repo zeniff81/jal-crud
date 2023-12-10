@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jal_crud.Views.Productos.ProductosUpdate"
+             Title="TIPO DE FACTURAS - Update">
+
+    <StackLayout>
+        <Label Text="Introduzca el Id que desea buscar" FontSize="Medium" Margin="0,20" HorizontalTextAlignment="Center"/>
+        <Entry x:Name="ProductoIdEntry" Placeholder="ProductoId" Margin="0,20" HorizontalTextAlignment="Center" WidthRequest="120" TextChanged="CategoryIdEntry_HandlerChanged" Completed="ProductoIdEntry_Completed"/>
+        <Button x:Name="Button_Buscar" Text="Buscar" Clicked="Button_Buscar_Clicked" WidthRequest="120"/>
+        <Label x:Name="Label_error" Text="" TextColor="Red" Margin="0,20,0,50" HorizontalTextAlignment="Center"/>
+
+        <StackLayout x:Name="Edicion" IsVisible="false" HorizontalOptions="Center">
+            <Label Text="Edite y presione guardar" FontSize="Medium" Margin="0,20" HorizontalTextAlignment="Center"/>
+            <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                <Label Text="ProductoId:"/>
+                <Label x:Name="Label_ProductoId" Text=""/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                <Label Text="Producto:" VerticalTextAlignment="Center"/>
+                <Entry x:Name="Entry_Producto" Text="" VerticalTextAlignment="Center"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                <Label Text="Precio:" VerticalTextAlignment="Center"/>
+                <Entry x:Name="Entry_Precio" Text="" VerticalTextAlignment="Center"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                <Label Text="Costo:" VerticalTextAlignment="Center"/>
+                <Entry x:Name="Entry_Costo" Text="" VerticalTextAlignment="Center"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                <Label Text="Cantidad:" VerticalTextAlignment="Center"/>
+                <Entry x:Name="Entry_Cantidad" Text="" VerticalTextAlignment="Center"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                <Label Text="CategoriaId:" VerticalTextAlignment="Center"/>
+                <Entry x:Name="Entry_CategoriaId" Text="" VerticalTextAlignment="Center"/>
+            </HorizontalStackLayout>
+
+
+
+            <Button x:Name="Button_guardar" Text="Guardar" Clicked="Button_Guardar_Clicked" BackgroundColor="Green" WidthRequest="120" Margin="0, 20"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

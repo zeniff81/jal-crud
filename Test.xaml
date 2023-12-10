@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jal_crud.Test"
+             Title="Test">
+    <VerticalStackLayout>
+        <Picker
+            Title="Seleccionar categoria"
+            ItemsSource="{Binding Categorias}"
+            ItemDisplayBinding="{Binding Categoria}"
+            SelectedItem="{Binding SelectedCategoria, Mode=TwoWay}">
+        </Picker>
+        <Entry Text="{Binding CategoriaId, Mode=TwoWay}" />
+
+        <Button Text="Hello" Command="{Binding HelloCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>

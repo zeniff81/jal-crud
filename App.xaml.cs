@@ -8,10 +8,9 @@ namespace jal_crud
         public App()
         {
             InitializeComponent();
+            MainPage = new NavigationPage(new MainPage());
+            // MainPage = new Test();
 
-            Context db = new Context();
-            // MainPage = new ContactoView();
-            MainPage = new ContactosView();
         }
     }
 }

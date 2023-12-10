@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jal_crud.Views.TipoFacturas.TipoFacturasRead"
+             Title="TipoFacturas - Read">
+    
+    <VerticalStackLayout>
+        <ScrollView>
+        <CollectionView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ItemsSource="{Binding TipoFacturas}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Black" Background="WhiteSmoke" Margin="10, 5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"/>
+                                <ColumnDefinition Width="70*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Text="TipoFacturaId:" Grid.Column="0" Grid.Row="0" />
+                            <Label Text="{Binding Path=TipoFacturaId, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" />
+
+                            <Label Text="Tipo de factura:" Grid.Column="0" Grid.Row="1" />
+                            <Label Text="{Binding Path=TipoFactura, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" />
+                            
+                            
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        </ScrollView>
+    </VerticalStackLayout>
+        
+</ContentPage>
