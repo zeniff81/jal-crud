@@ -2,14 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="jal_crud.MainPage"
-             Title="MainPage">
+             Title="C R U D ">
     <VerticalStackLayout Margin="30" Spacing="10">
-        <Button Text="Categorias" Clicked="ButtonCategorias_Clicked"/>
-        <Button Text="Tipo Facturas" Clicked="ButttonTipoFactura_Clicked"/>
         <Button Text="Clientes" Clicked="ButtonClientes_Clicked"/>
-        <Button Text="Productos" Clicked="ButtonProductos_Clicked"/>
-        <Button Text="Facturas" Clicked="ButtonFacturas_Clicked"/>
-        <Button Text="Detalle Facturas" Clicked="ButtonDetalleFacturas_Clicked"/>
-        <Button Text="Borrar tablas" Clicked="Button_Clicked_1" BackgroundColor="OrangeRed"/>
+        <Button Text="Categorias" Clicked="ButtonCategorias_Clicked"/>
+        <Button Text="Tipo Facturas" Clicked="ButttonTipoFactura_Clicked" />
+        
+        <Button Text="Productos" Clicked="ButtonProductos_Clicked" Margin="0, 0, 0, 30"/>
+        <Button Text="Facturas" Clicked="ButtonFacturas_Clicked" Margin="0, 0, 0, 60"/>        
+        <Button Text="Borrar tablas" Clicked="Borrar_Button_Clicked_1" BackgroundColor="OrangeRed"/>
+        <Button Text="Pruebas" Clicked="Pruebas_Button_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

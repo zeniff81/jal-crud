@@ -4,12 +4,13 @@
              x:Class="jal_crud.Views.Clientes.ClientesCreate"
              Title="CLIENTES - Create">
     <VerticalStackLayout>
-        <VerticalStackLayout Margin="30,2" VerticalOptions="CenterAndExpand">                        
-            <Entry Placeholder="Nombres" Text="{Binding Path=Nombres, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
-            <Entry Placeholder="Apellidos" Text="{Binding Path=Apellidos, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
-            <Entry Placeholder="Direccion" Text="{Binding Path=Direccion, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
-            <Entry Placeholder="Telefono" Text="{Binding Path=Telefono, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
-            <Button Text="Guardar" Margin="0, 40" Command="{Binding SaveCommand}" BackgroundColor="Green"/>
+        <VerticalStackLayout Margin="30,2" VerticalOptions="CenterAndExpand">
+            <Label Text="NUEVO CLIENTE" FontSize="Large" HorizontalTextAlignment="Center" Margin="0, 40"/>
+            <Entry x:Name="Nombres_Entry"  Placeholder="Nombres" Text="{Binding Path=Nombres, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Entry x:Name="Apellidos_Entry" Placeholder="Apellidos" Text="{Binding Path=Apellidos, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Entry x:Name="Direccion_Entry" Placeholder="Direccion" Text="{Binding Path=Direccion, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Entry x:Name="Telefono_Entry" Placeholder="Telefono" Text="{Binding Path=Telefono, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Button Text="Guardar" Margin="0, 40" Command="{Binding SaveCommand}" BackgroundColor="Green" Clicked="Button_Clicked"/>
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

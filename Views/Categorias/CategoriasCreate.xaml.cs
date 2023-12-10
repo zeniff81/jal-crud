@@ -10,4 +10,8 @@ public partial class CategoriasCreate : ContentPage
         BindingContext = new CategoriasViewModel();
     }
 
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        Entry_Nombre.Text = "";
+    }
 }

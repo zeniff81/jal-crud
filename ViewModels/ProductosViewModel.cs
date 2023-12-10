@@ -5,106 +5,122 @@ using System.Windows.Input;
 
 namespace jal_crud.ViewModels
 {
-    class ClientesViewModel : BaseViewModel
+    class ProductosViewModel : BaseViewModel
     {
         #region Variables locales
-        int _ClienteId;
-        string _Cliente;
-        string _nombres;
-        string _apellidos;
-        string _direccion;
-        string _telefono;
-        List<clsClientesBE> _Clientes;
+        int _productoId;
+        string _producto;
+        decimal _precio;
+        decimal _costo;
+        int _cantidad;
+        int _categoriaId;        
+        List<clsProductosBE> _Productos;
+        List<clsCategoriasBE> _Categorias;
         #endregion
 
         #region Propiedades
-        public List<clsClientesBE> Clientes
+        public List<clsProductosBE> Productos
         {
             get
             {
-                return _Clientes;
+                return _Productos;
             }
             set
             {
-                if (_Clientes != value)
+                if (_Productos != value)
                 {
-                    _Clientes = value;
-                    this.OnPropertyChanged(nameof(Clientes));
+                    _Productos = value;
+                    this.OnPropertyChanged(nameof(Productos));
                 }
             }
         }
-        public string Nombres
+        public string Producto
         {
             get
             {
-                return _nombres;
+                return _producto;
             }
             set
             {
-                if (_nombres != value)
+                if (_producto != value)
                 {
-                    _nombres = value;
-                    this.OnPropertyChanged(nameof(Nombres));
+                    _producto = value;
+                    this.OnPropertyChanged(nameof(Producto));
                 }
             }
         }
-        public string Apellidos
+        public decimal Precio
         {
             get
             {
-                return _apellidos;
+                return _precio;
             }
             set
             {
-                if (_apellidos != value)
+                if (_precio != value)
                 {
-                    _apellidos = value;
-                    this.OnPropertyChanged(nameof(Apellidos));
+                    _precio = value;
+                    this.OnPropertyChanged(nameof(Precio));
                 }
             }
         }
-        public string Direccion
+        public decimal Costo
         {
             get
             {
-                return _direccion;
+                return _costo;
             }
             set
             {
-                if (_direccion != value)
+                if (_costo != value)
                 {
-                    _direccion = value;
-                    this.OnPropertyChanged(nameof(Direccion));
+                    _costo = value;
+                    this.OnPropertyChanged(nameof(Costo));
                 }
             }
         }
-        public string Telefono
+        public int Cantidad
         {
             get
             {
-                return _telefono;
+                return _cantidad;
             }
             set
             {
-                if (_telefono != value)
+                if (_cantidad != value)
                 {
-                    _telefono = value;
-                    this.OnPropertyChanged(nameof(Telefono));
+                    _cantidad = value;
+                    this.OnPropertyChanged(nameof(Cantidad));
                 }
             }
         }
-        public int ClienteId
+        public int CategoriaId
         {
             get
             {
-                return _ClienteId;
+                return _categoriaId;
             }
             set
             {
-                if (_ClienteId != value)
+                if (_categoriaId != value)
                 {
-                    _ClienteId = value;
-                    this.OnPropertyChanged(nameof(ClienteId));
+                    _categoriaId = value;
+                    this.OnPropertyChanged(nameof(CategoriaId));
+                }
+            }
+        }
+        public int ProductoId
+        {
+            get
+            {
+                return _productoId;
+            }
+            set
+            {
+                if (_productoId != value)
+                {
+                    _productoId = value;
+                    this.OnPropertyChanged(nameof(ProductoId));
                 }
             }
         }
@@ -113,7 +129,9 @@ namespace jal_crud.ViewModels
         #region Command
         private ICommand _saveCommand;
         private ICommand _borrarCommand;
-        private ICommand _getClienteCommand;
+        private ICommand _getProductoCommand;
+
+        
 
         public ICommand SaveCommand
         {
@@ -138,15 +156,15 @@ namespace jal_crud.ViewModels
                     }));
             }
         }
-        public ICommand getClienteCommand
+        public ICommand getProductoCommand
         {
             get
             {
-                return _getClienteCommand ??
-                    (_getClienteCommand = new Command((obj) =>
+                return _getProductoCommand ??
+                    (_getProductoCommand = new Command((obj) =>
                     {
                         int Id = int.Parse((string)obj);
-                        getCliente(Id);
+                        getProducto(Id);
                     }));
             }
         }
@@ -157,35 +175,30 @@ namespace jal_crud.ViewModels
         {
             try
             {
-                if (
-                    string.IsNullOrEmpty(Nombres) &&
-                    string.IsNullOrEmpty(Apellidos) &&
-                    string.IsNullOrEmpty(Direccion) &&
-                    string.IsNullOrEmpty(Telefono)
-                    )
+                if (string.IsNullOrEmpty(Producto))
                 {
                     App.Current.MainPage.DisplayAlert("Aviso", "Faltan datos", "Aceptar");
                     return;
                 }
 
                 DataService data = new DataService();
-                data.ClientesSave(Nombres, Apellidos, Direccion, Telefono);
-                App.Current.MainPage.DisplayAlert("Aviso", "Guardado correctamente.", "Aceptar");
+                string ProductosSave_resultado = data.ProductosSave(Producto, Precio, Costo, Cantidad, CategoriaId);
+                App.Current.MainPage.DisplayAlert("Aviso", ProductosSave_resultado, "Aceptar");
             }
             catch (Exception ex)
             {
                 var x = ex;
             }
         }
-        private void Borrar(int ClienteId)
+        private void Borrar(int ProductoId)
         {
             DataService data = new DataService();
-            string resultado = data.ClientesDeleteGetById(ClienteId);
+            string resultado = data.ProductosDeleteGetById(ProductoId);
             App.Current.MainPage.DisplayAlert("Aviso", resultado, "Aceptar");
         }
         #endregion
 
-        public ClientesViewModel()
+        public ProductosViewModel()
         {
             getDatos();
         }
@@ -193,24 +206,20 @@ namespace jal_crud.ViewModels
         private void getDatos()
         {
             DataService data = new DataService();
-            Clientes = data.ClientesGet();
+            Productos = data.ProductosGet();
         }
 
-        private void getCliente(int ClienteId)
+        private void getProducto(int ProductoId)
         {
             DataService data = new DataService();
-            var result = data.ClientesGetById(ClienteId);
+            var result = data.ProductosGetById(ProductoId);
 
             if (result != null)
             {
-                Clientes.Clear();
-                Clientes.Add(new clsClientesBE
+                Productos.Clear();
+                Productos.Add(new clsProductosBE
                 {
-                    ClienteId = result.ClienteId,
-                    Nombres = result.Nombres,
-                    Apellidos = result.Apellidos,
-                    Direccion = result.Direccion,
-                    Telefono = result.Telefono,
+                    Producto = result.Producto,
                 });
           }
         }

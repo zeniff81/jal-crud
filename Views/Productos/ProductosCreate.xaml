@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jal_crud.Views.Productos.ProductosCreate"
+             Title="TIPO DE FACTURA - Create">
+    <VerticalStackLayout>
+        <VerticalStackLayout Margin="30,2" VerticalOptions="CenterAndExpand">
+            <Label Text="NUEVO PRODUCTO" FontSize="Large" HorizontalTextAlignment="Center" Margin="0, 40"/>
+            <Label Text="Nombre del producto" />
+            <Entry x:Name="Producto_Entry"  Placeholder="Producto" Text="{Binding Path=Producto, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Label Text="Precio" />
+            <Entry x:Name="Precio_Entry"  Placeholder="Precio" Text="{Binding Path=Precio, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Label Text="Costo" />
+            <Entry x:Name="Costo_Entry"  Placeholder="Costo" Text="{Binding Path=Costo, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Label Text="Cantidad" />
+            <Entry x:Name="Cantidad_Entry"  Placeholder="Cantidad" Text="{Binding Path=Cantidad, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Label Text="Categoria Id" />            
+            <Entry x:Name="CategoriaId_Entry"  Placeholder="CategoriaId" Text="{Binding Path=CategoriaId, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />            
+            <Button Text="Guardar" Margin="0, 40" Command="{Binding SaveCommand}" BackgroundColor="Green" Clicked="Button_Clicked"/>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

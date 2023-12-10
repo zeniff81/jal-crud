@@ -4,12 +4,13 @@
              x:Class="jal_crud.Test"
              Title="Test">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" 
-            FontSize="Large"
-            />
+        <Picker
+            Title="Seleccionar categoria"
+            ItemsSource="{Binding Categorias}"
+            ItemDisplayBinding="{Binding Categoria}"
+            SelectedItem="{Binding SelectedCategoria, Mode=TwoWay}">
+        </Picker>
+        <Entry Text="{Binding CategoriaId, Mode=TwoWay}" />
 
         <Button Text="Hello" Command="{Binding HelloCommand}"/>
     </VerticalStackLayout>

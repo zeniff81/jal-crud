@@ -78,6 +78,42 @@
 	  <Compile Update="Views\Categorias\CategoriasCreate.xaml.cs">
 	    <DependentUpon>CategoriasCreate.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\Facturas\FacturasCreate.xaml.cs">
+	    <DependentUpon>FacturasCreate.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Facturas\FacturasDelete.xaml.cs">
+	    <DependentUpon>FacturasDelete.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Facturas\FacturasRead.xaml.cs">
+	    <DependentUpon>FacturasRead.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Facturas\FacturasUpdate.xaml.cs">
+	    <DependentUpon>FacturasUpdate.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Productos\ProductosCreate.xaml.cs">
+	    <DependentUpon>ProductosCreate.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Productos\ProductosDelete.xaml.cs">
+	    <DependentUpon>ProductosDelete.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Productos\ProductosRead.xaml.cs">
+	    <DependentUpon>ProductosRead.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Productos\ProductosUpdate.xaml.cs">
+	    <DependentUpon>ProductosUpdate.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TipoFacturas\TipoFacturasCreate.xaml.cs">
+	    <DependentUpon>TipoFacturasCreate.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TipoFacturas\TipoFacturasDelete.xaml.cs">
+	    <DependentUpon>TipoFacturasDelete.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TipoFacturas\TipoFacturasRead.xaml.cs">
+	    <DependentUpon>TipoFacturasRead.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TipoFacturas\TipoFacturasUpdate.xaml.cs">
+	    <DependentUpon>TipoFacturasUpdate.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -105,6 +141,49 @@
 	  <MauiXaml Update="Views\CRUDMenu\EditorView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Facturas\FacturasCreate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Facturas\FacturasDelete.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Facturas\FacturasRead.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Facturas\FacturasUpdate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Productos\AgregarProducto.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Productos\ProductosCreate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Productos\ProductosDelete.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Productos\ProductosRead.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Productos\ProductosUpdate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TipoFacturas\TipoFacturasCreate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TipoFacturas\TipoFacturasDelete.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TipoFacturas\TipoFacturasRead.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TipoFacturas\TipoFacturasUpdate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Views\DetalleFacturas\" />
 	</ItemGroup>
 
 </Project>

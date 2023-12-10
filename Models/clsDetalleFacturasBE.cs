@@ -18,10 +18,11 @@ namespace jal_crud.Models
         public decimal Precio { get; set; }
         public int Cantidad { get; set; }
 
-        public int FacturaId { get; set; }
         public int ProductoId { get; set; }
-        public virtual clsFacturasBE Facturas {  get; set; }
         public virtual clsProductosBE Productos { get; set; }
+                
+        public int FacturaId { get; set; }
+        public virtual clsFacturasBE Factura {  get; set; }
 
     }
 }

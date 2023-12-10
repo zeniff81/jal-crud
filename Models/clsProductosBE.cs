@@ -18,9 +18,10 @@ namespace jal_crud.Models
         public decimal Precio { get; set; }
         public decimal Costo { get; set; }
         public int Cantidad { get; set; }
-        
+
+        [ForeignKey("Categorias")]
         public int CategoriaId { get; set; }
-        public virtual clsCategoriasBE Categorias { get; set; }
+        public virtual clsCategoriasBE Categoria { get; set; }
 
         public virtual ICollection<clsDetalleFacturasBE> DetalleFacturas { get; set; }
     }

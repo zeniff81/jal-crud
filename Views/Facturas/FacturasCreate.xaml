@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+ x:Class="jal_crud.Views.Facturas.FacturasCreate"
+ Title="NUEVA FACTURA - Create">
+    <VerticalStackLayout>
+        <StackLayout x:Name="Seccion_Botones_Navegacion" Margin="20" Spacing="20" Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Cliente" Clicked="Mostrar_Seccion_Clientes" />
+            <Button Text="Productos" Clicked="Mostrar_Seccion_Productos"/>
+            <Button Text="Tipo de factura" Clicked="Mostrar_Seccion_TipoFactura"/>
+        </StackLayout>
+        
+        <StackLayout x:Name="Seccion_Factura" Margin="30,2" VerticalOptions="CenterAndExpand">
+            <Label Text="NUEVA FACTURA" FontSize="Large" HorizontalTextAlignment="Center" Margin="0, 40"/>
+
+            <HorizontalStackLayout Spacing="10" Margin="0, 20" Background="LightGray" Padding="20">
+                <Label x:Name="ClienteId_label" FontAttributes="Bold" />
+                <Label x:Name="Cliente_Label" Text="" HorizontalOptions="FillAndExpand" FontAttributes="Bold" />
+                <Label Text="{Binding Fecha}"/>
+            </HorizontalStackLayout>
+            <Label Text="Tipo de FacturaId"/>
+            <Entry x:Name="TipoFacturaId_Entry" Placeholder="TipoFacturaId" Text="{Binding Path=TipoFacturaId, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+
+            <Label Text="Subtotal"/>
+            <Entry x:Name="Subtotal_Entry" Placeholder="Subtotal" Text="{Binding Path=Subtotal, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Label Text="Descuento"/>
+            <Entry x:Name="Descuento_Entry" Placeholder="Descuento" Text="{Binding Path=Descuento, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            <Label Text="Monto"/>
+            <Entry x:Name="Monto_Entry" Placeholder="Monto" Text="{Binding Path=Monto, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+
+
+            <Button Text="Comprar" Margin="0, 40" Command="{Binding SaveCommand}" BackgroundColor="Green" Clicked="Button_Clicked" WidthRequest="120"/>
+        </StackLayout>
+
+        <StackLayout x:Name="Seccion_Detalles" Margin="30,2" VerticalOptions="CenterAndExpand">
+            <VerticalStackLayout Margin="0, 20">
+                <Label Text="Detalles"/>
+                <CollectionView ItemsSource="{Binding Factura.DetalleFacturas}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Label Text="{Binding ProductoId}" />
+                                <Label Text="{Binding Cantidad}" />
+                                <Label Text="{Binding Precio}" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </StackLayout>
+
+        <StackLayout x:Name="Seccion_Cliente" Margin="40" VerticalOptions="CenterAndExpand" IsVisible="false">
+            <Label Text="Clientes" FontSize="Large" Margin="40" HorizontalTextAlignment="Center"/>
+            <ListView x:Name="ClientesListView" ItemTapped="Clientes_Lista_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding ClienteId}" />
+                                <Label Text="{Binding Nombres}" />
+                                <Label Text="{Binding Apellidos}" />
+                                <Label Text="{Binding Telefono}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Seleccionar cliente" Clicked="Ocultar_Clientes_Button_Clicked" Margin="40"/>
+        </StackLayout>
+
+        <StackLayout x:Name="Seccion_Productos" Margin="40" VerticalOptions="CenterAndExpand" IsVisible="false">
+            <Label Text="Productos" FontSize="Large" Margin="40" HorizontalTextAlignment="Center"/>
+            <ListView x:Name="ProductosListView" ItemTapped="ProductosLista_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Producto}" />
+                                <Label Text="{Binding Precio, StringFormat='Precio: {0:C}'}" />
+                                <Label Text="{Binding Costo, StringFormat='Costo: {0:C}'}" />
+                                <Label Text="{Binding Cantidad, StringFormat='Cantidad: {0}'}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Agregar" Clicked="Ocultar_Seccion_Producto" Margin="40"/>
+        </StackLayout>
+
+        <StackLayout x:Name="Seccion_TipoFactura" Margin="40" VerticalOptions="CenterAndExpand" IsVisible="false">
+            <Label Text="Tipo de Factura" FontSize="Large" Margin="40" HorizontalTextAlignment="Center"/>
+            <ListView x:Name="TipoFacturasListView" ItemTapped="Tipo_Factura_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding TipoFacturaId}" />
+                                <Label Text="{Binding TipoFactura}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Agregar" Clicked="Ocultar_Seccion_TipoFactura" Margin="40"/>
+        </StackLayout>
+
+    </VerticalStackLayout>
+
+
+</ContentPage>

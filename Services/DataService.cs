@@ -96,7 +96,7 @@ namespace jal_crud.Services
                 return db.clsContactosBE.Where(x => x.ContactosId == newContactoId).FirstOrDefault();
             }
             catch (Exception ex)
-            {                
+            {
                 return new clsContactosBE();
             }
         }
@@ -219,10 +219,10 @@ namespace jal_crud.Services
         {
             try
             {
-                db = new Context();                
+                db = new Context();
 
                 db.clsCategoriasBE.Add(new Models.clsCategoriasBE
-                {                    
+                {
                     Categoria = newCategoria,
                 });
 
@@ -300,7 +300,7 @@ namespace jal_crud.Services
                              CategoriaId = Ca.CategoriaId,
                              Categoria = Ca.Categoria
                          };
-            
+
             return result.ToList();
 
         }
@@ -400,6 +400,322 @@ namespace jal_crud.Services
                              Apellidos = Ca.Apellidos,
                              Direccion = Ca.Direccion,
                              Telefono = Ca.Telefono,
+                         };
+
+            return result.ToList();
+
+        }
+        #endregion
+
+        #region TipoFacturas
+        public string TipoFacturasSave(string newTipoFactura)
+        {
+            try
+            {
+                db = new Context();
+
+                db.clsTipoFacturasBE.Add(new Models.clsTipoFacturasBE
+                {
+                    TipoFactura = newTipoFactura
+                });
+
+                db.SaveChanges();
+                return "Tipo de Factura guardado Correctamente";
+            }
+            catch (Exception ex) { return ex.Message; }
+        }
+
+        public string TipoFacturasUpdate(int newTipoFacturaId, string newTipoFacturas)
+        {
+            try
+            {
+
+                db = new Context();
+                var row = db.clsTipoFacturasBE.Where(x => x.TipoFacturaId == newTipoFacturaId).FirstOrDefault();
+                if (row != null)
+                {
+                    row.TipoFactura = newTipoFacturas;
+
+                    db.Entry(row).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    db.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "Modificado correctamente";
+        }
+
+        public string TipoFacturasDeleteGetById(int TipoFacturaId)
+        {
+            try
+            {
+
+                db = new Context();
+                var row = db.clsTipoFacturasBE.Where(x => x.TipoFacturaId == TipoFacturaId).FirstOrDefault();
+                if (row != null)
+                {
+                    db.Entry(row).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                    db.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "Eliminado correctamente";
+        }
+
+        public clsTipoFacturasBE TipoFacturasGetById(int newTipoFacturaId)
+        {
+            try
+            {
+
+                db = new Context();
+                return db.clsTipoFacturasBE.Where(x => x.TipoFacturaId == newTipoFacturaId).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                return new clsTipoFacturasBE();
+            }
+        }
+
+        public List<clsTipoFacturasBE> TipoFacturasGet()
+        {
+            Context db = new Context();
+
+            var result = from Ca in db.clsTipoFacturasBE
+                         select new clsTipoFacturasBE
+                         {
+                             TipoFacturaId = Ca.TipoFacturaId,
+                             TipoFactura = Ca.TipoFactura,
+                         };
+
+            return result.ToList();
+
+        }
+        #endregion
+
+        #region Productos
+        public string ProductosSave(string newProducto, decimal newPrecio, decimal newCosto, int newCantidad, int newCategoriaId)
+        {
+            try
+            {
+                db = new Context();
+
+                db.clsProductosBE.Add(new Models.clsProductosBE
+                {
+                    Producto = newProducto,
+                    Precio = newPrecio,
+                    Costo = newCosto,
+                    Cantidad = newCantidad,
+                    CategoriaId = newCategoriaId
+                });
+
+                db.SaveChanges();
+                return "Producto guardado Correctamente";
+            }
+            catch (Exception ex) { return ex.Message; }
+        }
+
+        public string ProductosUpdate(int newProductoId, string newProducto, decimal newPrecio, decimal newCosto, int newCantidad, int newCategoriaId)
+        {
+            try
+            {
+
+                db = new Context();
+                var row = db.clsProductosBE.Where(x => x.ProductoId == newProductoId).FirstOrDefault();
+                if (row != null)
+                {
+                    row.Producto = newProducto;
+                    row.Precio = newPrecio;
+                    row.Costo = newCosto;
+                    row.Cantidad = newCantidad;
+                    row.CategoriaId = newCategoriaId;
+
+                    db.Entry(row).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    db.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "Producto Modificado correctamente";
+        }
+
+        public string ProductosDeleteGetById(int ProductoId)
+        {
+            try
+            {
+
+                db = new Context();
+                var row = db.clsProductosBE.Where(x => x.ProductoId == ProductoId).FirstOrDefault();
+                if (row != null)
+                {
+                    db.Entry(row).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                    db.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "Producto Eliminado correctamente";
+        }
+
+        public clsProductosBE ProductosGetById(int newProductoId)
+        {
+            try
+            {
+
+                db = new Context();
+                return db.clsProductosBE.Where(x => x.ProductoId == newProductoId).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                return new clsProductosBE();
+            }
+        }
+
+        public List<clsProductosBE> ProductosGet()
+        {
+            Context db = new Context();
+
+            var result = from Pro in db.clsProductosBE
+                         select new clsProductosBE
+                         {
+                             ProductoId = Pro.ProductoId,
+                             Producto = Pro.Producto,
+                             Precio = Pro.Precio,
+                             Costo = Pro.Costo,
+                             Cantidad = Pro.Cantidad,
+                             CategoriaId = Pro.CategoriaId,
+                             Categoria = Pro.Categoria
+                         };
+
+            return result.ToList();
+
+        }
+        #endregion
+
+        #region Facturas
+        public string FacturasSave(
+            DateTime newFecha,
+            decimal newSubtotal, 
+            decimal newDescuento, 
+            decimal newMonto,
+            int newClienteId,
+            int newTipoFacturaId
+            )
+        {
+            try
+            {
+                db = new Context();
+
+                db.clsFacturasBE.Add(new Models.clsFacturasBE
+                {
+                    Fecha = newFecha,
+                    Subtotal = newSubtotal,
+                    Descuento = newDescuento,
+                    Monto = newMonto,
+                    ClienteId = newClienteId,
+                    TipoFacturaId = newTipoFacturaId
+                });
+
+                db.SaveChanges();
+                return "Factura guardada Correctamente";
+            }
+            catch (Exception ex) { return ex.Message; }
+        }
+
+        public string FacturasUpdate(   
+            int FacturaId,
+            decimal newSubtotal,
+            decimal newDescuento,
+            decimal newMonto,
+            int newClienteId,
+            int newTipoFacturaId
+            )
+        {
+            try
+            {
+
+                db = new Context();
+                var row = db.clsFacturasBE.Where(x => x.FacturaId == FacturaId).FirstOrDefault();
+                if (row != null)
+                {
+                    row.Subtotal = newSubtotal;
+                    row.Descuento = newDescuento ;
+                    row.Monto= newMonto;
+                    row.ClienteId = newClienteId ;
+                    row.TipoFacturaId= newTipoFacturaId;
+
+                    db.Entry(row).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    db.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "Factura Modificado correctamente";
+        }
+
+        public string FacturasDeleteGetById(int FacturaId)
+        {
+            try
+            {
+
+                db = new Context();
+                var row = db.clsFacturasBE.Where(x => x.FacturaId == FacturaId).FirstOrDefault();
+                if (row != null)
+                {
+                    db.Entry(row).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                    db.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "Factura Eliminado correctamente";
+        }
+
+        public clsFacturasBE FacturasGetById(int newFacturaId)
+        {
+            try
+            {
+
+                db = new Context();
+                return db.clsFacturasBE.Where(x => x.FacturaId == newFacturaId).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                return new clsFacturasBE();
+            }
+        }
+
+        public List<clsFacturasBE> FacturasGet()
+        {
+            Context db = new Context();
+
+            var result = from Fac in db.clsFacturasBE
+                         select new clsFacturasBE
+                         {
+                             Fecha = Fac.Fecha,
+                             Subtotal = Fac.Subtotal,
+                             Descuento = Fac.Descuento,
+                             Monto = Fac.Monto,
+                             ClienteId = Fac.ClienteId,
+                             TipoFacturaId = Fac.TipoFacturaId
                          };
 
             return result.ToList();

@@ -9,5 +9,12 @@ public partial class ClientesCreate : ContentPage
 		InitializeComponent();
         BindingContext = new ClientesViewModel();        
     }
-    
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        Nombres_Entry.Text = "";
+        Apellidos_Entry.Text = "";
+        Direccion_Entry.Text = "";
+        Telefono_Entry.Text = "";
+    }
 }

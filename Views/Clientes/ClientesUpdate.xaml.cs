@@ -20,7 +20,7 @@ public partial class ClientesUpdate : ContentPage
     {
         try
         {
-            int categoryId = int.Parse(CategoryIdEntry.Text);
+            int categoryId = int.Parse(ClienteIdEntry.Text);
             var Cliente = dataService.ClientesGetById(categoryId);
 
             if (Cliente != null)
@@ -38,7 +38,7 @@ public partial class ClientesUpdate : ContentPage
                 Label_error.Text = "Este cliente no existe";
                 Edicion.IsVisible = false;
             }
-
+            ClienteIdEntry.Focus();
         }
         catch (Exception ex)
         {
@@ -55,17 +55,23 @@ public partial class ClientesUpdate : ContentPage
     {
         try
         {
-            int categoryId = int.Parse(CategoryIdEntry.Text);
+            int categoryId = int.Parse(ClienteIdEntry.Text);
 
             string Nombres = Entry_Nombres.Text;
             string Apellidos = Entry_Apellidos.Text;
             string Direccion = Entry_Direccion.Text;
             string Telefono = Entry_Telefono.Text;
             var Cliente = dataService.ClientesUpdate(categoryId, Nombres, Apellidos, Direccion, Telefono);
+
         }
         catch (Exception ex)
         {
             DisplayAlert("Error", ex.Message, "Aceptar");
-        }
+        }        
+    }
+
+    private void ClienteIdEntry_Completed(object sender, EventArgs e)
+    {
+        Button_Buscar_Clicked(sender, e);
     }
 }
